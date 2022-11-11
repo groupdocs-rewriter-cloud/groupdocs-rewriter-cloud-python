@@ -48,6 +48,7 @@ Source file format | Paraphrased file format
 
 - **en** — to paraphrase English text or document
 - **ru** — to paraphrase Russian text or document
+- **uk** — to paraphrase Ukrainian text or document
 
 ## Quick start
 
