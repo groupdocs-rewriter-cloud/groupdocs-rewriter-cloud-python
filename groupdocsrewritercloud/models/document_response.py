@@ -47,14 +47,16 @@ class DocumentResponse(BaseModel):
         'message': 'message'
     }
 
-    def __init__(self, status="", message="", paraphrase=""):
+    def __init__(self, status="", message="", result=""):
         """
 
         :type status: str
         :type message: str
+        :type result: str
         """
         self._status = status  # type: str
         self._message = message  # type: str
+        self._result = result # type: str
 
     @property
     def status(self):
@@ -85,7 +87,7 @@ class DocumentResponse(BaseModel):
 
     @message.setter
     def message(self, message):
-        """Sets rersponse message.
+        """Sets response message.
         :param message: message.
         :type: str
         """
@@ -93,3 +95,22 @@ class DocumentResponse(BaseModel):
             raise ValueError("Invalid value for `message`, must not be `None`")
 
         self._message = message
+
+    @property
+    def result(self):
+        """Gets response result
+        :return: result.
+        :type: str
+        """
+        return self._result
+
+    @result.setter
+    def result(self, result):
+        """Sets response result.
+        :param result: result.
+        :type: str
+        """
+        if result is None:
+            raise ValueError("Invalid value for `result`, must not be `None`")
+
+        self._result = result

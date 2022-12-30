@@ -48,7 +48,8 @@ class RewriteDocument:
         'Name': 'str',
         'Folder': 'str',
         'Savepath': 'str',
-        'Savefile': 'str'
+        'Savefile': 'str',
+        'Diversity': 'str'
     }
 
     attribute_map = {
@@ -59,10 +60,11 @@ class RewriteDocument:
         'Name': 'name',
         'Folder': 'folder',
         'Savepath': 'savepath',
-        'Savefile': 'savefile'
+        'Savefile': 'savefile',
+        'Diversity': 'diversity'
     }
 
-    def __init__(self, language, _format, outformat, storage, name, folder, savepath, savefile):
+    def __init__(self, language, _format, outformat, storage, name, folder, savepath, savefile, diversity="off"):
         """
         :param str Language: language of document
         :param str Format: format of file for rewriting, put file extension here
@@ -81,8 +83,10 @@ class RewriteDocument:
         self.Folder = folder
         self.Savepath = savepath
         self.Savefile = savefile
+        self.Diversity = diversity
 
     def to_string(self):
-        request = [{"language": self.Language, "format": self.Format, "outformat": self.Outformat, "storage": self.Storage,
-                    "name": self.Name, "folder": self.Folder, "savepath": self.Savepath, "savefile": self.Savefile}]
+        request = [{"language": self.Language, "format": self.Format, "outformat": self.Outformat,
+                    "storage": self.Storage, "name": self.Name, "folder": self.Folder, "savepath": self.Savepath,
+                    "savefile": self.Savefile, "diversity": self.Diversity}]
         return  json.dumps(request)

@@ -4,7 +4,7 @@
 
 [Product Page](https://products.groupdocs.cloud/rewriter/python/) | [Documentation](https://docs.groupdocs.cloud/rewriter/) | [Demos](https://products.groupdocs.app/rewriter/family) | [Swagger UI](https://apireference.groupdocs.cloud/rewriter/) | [Examples](https://github.com/groupdocs-rewriter-cloud/groupdocs-rewriter-cloud-python) | [Blog](https://blog.groupdocs.cloud/category/rewriter/) | [Search](https://search.groupdocs.cloud/) | [Free Support](https://forum.groupdocs.cloud/c/rewriter) | [Free Trial](https://purchase.groupdocs.cloud/trial)
 
-[GroupDocs.Rewriter Cloud](https://products.groupdocs.cloud/rewriter/) is an easy-to-use and versatile online service for rephrasing the content of Microsoft Word, Open Office, PDF, and plain text documents with full preservation of their meaning. A powerful neural network reads and understands the text and then paraphrases it with different wording, producing a plagiarism-free result. While the background process is very complex and resource-intensive, you do not have to worry about formulas, machine learning, and load - our cloud services do all the work by providing you with a REST API to interact with them.
+[GroupDocs.Rewriter Cloud](https://products.groupdocs.cloud/rewriter/) is an easy-to-use and versatile online service for rephrasing the content of Microsoft Word®, OpenOffice, Adobe Acrobat® PDF documents, Markdown and HTML files as well as a plain text with full preservation of their meaning. A powerful neural network reads and understands the text and then paraphrases it with different wording, producing a plagiarism-free result. While the background process is very complex and resource-intensive, you do not have to worry about formulas, machine learning, and load - our cloud services do all the work by providing you with a REST API to interact with them.
 
 This software development kit (SDK) simplifies the interaction with GroupDocs.Rewriter Cloud API from Python code, allowing you to focus on the task at hand rather than the technical details. It handles all the routine operations such as establishing connection, sending API requests, and parsing responses, wrapping all these tasks into a few lines of code that are very easy to read and maintain even for inexperienced developers.
 
@@ -32,6 +32,8 @@ Document | Extensions | Description
 Microsoft Word | .DOCX<br />.DOCM<br />.DOC<br />.RTF | Microsoft Word 97-2021 and Microsoft 365 Word documents, including macro-enabled documents.
 Portable Document Format | .PDF | An open standard cross-platform format for documents that include formatted text, images, multimedia elements, and more.
 OpenDocument Text | .ODT | Documents created with a number of open source word processing applications, such as Writer from Apache OpenOffice and LibreOffice.
+Markdown | .MD | Files created using one of dialects of the Markdown language.
+HTML | .HTML | Files containing Hypertext Markup Language (HTML) that formats the structure of a webpage. 
 Plain text | .TXT | Plain text files or text in the form of lines.
 
 In addition to rephrasing, GroupDocs.Rewriter Cloud can save the resulting document in various file formats other than the original, with formatting preserved (where applicable).
@@ -42,7 +44,9 @@ Source file format | Paraphrased file format
 .DOC               | .DOC<br />.DOCX<br />.RTF<br />.HTML<br />.ODT<br />.TXT<br />.MD<br />.PDF<br />.TIFF<br />.SVG<br />.XPS
 .ODT               | .DOCX<br />.RTF<br />.HTML<br />.ODT<br />.TXT<br />.MD<br />.PDF<br />.TIFF<br />.SVG<br />.XPS
 .RTF               | .DOCX<br />.RTF<br />.HTML<br />.ODT<br />.TXT<br />.MD<br />.PDF<br />.TIFF<br />.SVG<br />.XPS
-.PDF               | .DOCX<br />.PPTX<br />.HTML<br />.XPS<br />.SVG
+.PDF               | .PDF<br />.DOCX<br />.PPTX<br />.HTML<br />.XPS<br />.SVG
+.MD                | .MD<br />
+.HTML              | .HTML<br />.PDF<br />.DOCX<br />.TIFF<br />.XPS<br />
 
 ## Supported languages
 
@@ -140,6 +144,7 @@ The following code snippets demonstrate how to use the GroupDocs.Rewriter Python
 ```python
 # Load the gem
 import groupdocs_rewriter_cloud
+
 # Get Client Id and Client Secret from https://dashboard.groupdocs.cloud
 my_client_id = ""
 my_client_secret = ""
@@ -151,7 +156,7 @@ api = RewriterApi(configuration)
 language = "en"
 text = "GroupDocs Cloud customers come from a wide variety of industries and can be found all over the globe."
 
-rewriter = RewriteText(language, text)
+rewriter = RewriteText(language, text, diversity = "medium", suggestions=2)
 request = rewriter.to_string()
 res_text = api.post_rewrite_text(request)
 print(res_text.message)
@@ -173,14 +178,15 @@ api = RewriterApi(configuration)
 # Document paraphrasing
 language = "en"
 _format = "docx"
+outformat = "docx"
 storage = "internal"
 name = "test_python.docx"
 folder = ""
 savepath = ""
-savefile = "test_python.docx"  
-masters = False
-elements = []
-rewriter = RewriteDocument(language, _format, storage, name, folder, savepath, savefile, masters, elements)
+savefile = "paraphrased.docx"
+
+rewriter = RewriteDocument(language, _format, outformat, storage, name, folder, savepath, savefile, diversity="medium")
+
 request = rewriter.to_string()
 res_doc = api.post_rewrite_document(request)
 print(res_doc.message)

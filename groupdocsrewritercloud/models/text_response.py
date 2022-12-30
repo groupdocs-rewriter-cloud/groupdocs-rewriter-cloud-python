@@ -41,6 +41,7 @@ class TextResponse(BaseModel):
         'status': 'str',
         'message': 'str',
         'result': 'str',
+        'results': 'list[str]',
         'sourcelist': 'list[str]',
         'targetlist': 'list[str]'
     }
@@ -49,20 +50,24 @@ class TextResponse(BaseModel):
         'status': 'status',
         'message': 'message',
         'result': 'result',
+        'results': 'results',
         'sourcelist': 'sourcelist',
         'targetlist': 'targetlist'
     }
 
-    def __init__(self, status="", message="", result="", sourcelist=[], targetlist=[]):
+    def __init__(self, status="", message="", result="", results=[], sourcelist=[], targetlist=[]):
         """
-
         :type status: str
         :type message: str
         :type result: str
+        :type results: list
+        :type sourcelist: list
+        :type targetlist: list
         """
         self._status = status  # type: str
         self._message = message  # type: str
         self._result = result # type: str
+        self._results = results # type: list
         self._sourcelist = sourcelist # type: list
         self._targetlist = targetlist # type: list
 
@@ -111,16 +116,16 @@ class TextResponse(BaseModel):
         :return: paraphrased text
         :type: str
         """
-        return self._result, self._sourcelist, self._targetlist
+        return self._result, self._results, self._sourcelist, self._targetlist
 
     @result.setter
     def result(self, result):
         """
         Sets paraphrased text
-        :param paraphrase: paraphrased text
+        :param result: paraphrased text
         :type: str
         """
         if result is None:
-            raise ValueError("Invalid value for `paraphrase`, must not be `None`")
+            raise ValueError("Invalid value for `result`, must not be `None`")
         self._result = result
 

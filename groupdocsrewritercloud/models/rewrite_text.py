@@ -43,24 +43,34 @@ class RewriteText:
     model_types = {
         'Language': 'str',
         'Text': 'str',
-        'Tokenize': bool
+        'Tokenize': bool,
+        'Diversity': 'str',
+        'Suggestions': int
     }
 
     attribute_map = {
         'Language': 'language',
         'Text': 'text',
-        'Tokenize': 'tokenize'
+        'Tokenize': 'tokenize',
+        'Diversity': 'diversity',
+        'Suggestions': 'suggestions'
     }
 
-    def __init__(self, language, text, tokenize=False):
+    def __init__(self, language, text, tokenize=False, diversity="off", suggestions=1):
         """
         :param str language: language of text
         :param str text: text to paraphrase
+        :param bool tokenize: to tokenize input and output texts
+        :param str diversity: diversity level of output text
+        :param int suggestions: number of paraphrasing variants returned
         """
-        self.Language = language        # language of text
-        self.Text = text            # text to paraphrase
-        self.Tokenize = tokenize    # tokenization mode
+        self.Language = language  # language of text
+        self.Text = text  # text to paraphrase
+        self.Tokenize = tokenize  # tokenization mode
+        self.Diversity = diversity  # diversity of paraphrasing, "medium" or "high", default is "off"
+        self.Suggestions = suggestions  # number of suggested variants, 3 maximum
 
     def to_string(self):
-        request = [{"language": self.Language, "text": self.Text, "tokenize": self.Tokenize}]
+        request = [{"language": self.Language, "text": self.Text, "tokenize": self.Tokenize,
+                    "diversity": self.Diversity, "suggestions": self.Suggestions}]
         return json.dumps(request)

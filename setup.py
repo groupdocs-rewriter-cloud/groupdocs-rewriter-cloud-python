@@ -4,7 +4,7 @@ from setuptools import setup, find_packages
 from os import path
 
 NAME = "groupdocs-rewriter-cloud"
-VERSION = "22.11.1"
+VERSION = "22.12.0"
 # To install the library, run the following
 #
 # python setup.py install
@@ -62,8 +62,8 @@ setup(
     # This package contains GroupDocs.Rewriter Cloud SDK for Python.
     # This SDK allows you to work with GroupDocs.Rewriter Cloud REST APIs in your Python applications, and integrate Rewriter functionality in few steps.
     #
-    # In detail, it's a set of SDKs for plain text and document rewriting in our Cloud. It supports paraphrasing of Word and PDF documents. Just pass text or parameteres of document uploaded to our Cloud Storage, to the GroupDocs.Rewriter Cloud API, and it will return paraphrased text or will save paraphrased file in Cloud Storage usinng specified path and name.
+    # In detail, it's a set of SDKs for plain text and document rewriting in our Cloud. It supports paraphrasing of Microsoft Word or Open Office documents, Adobe PDF documents, Markdown files, HTML files and plain text. Just pass text or parameteres of document uploaded to our Cloud Storage, to the GroupDocs.Rewriter Cloud API, and it will return paraphrased text or will save paraphrased file in Cloud Storage using specified path and name.
     #
-    # It is easy to get started with GroupDocs.Rewriter Cloud, and there is nothing to install locally or configure servers. Create an account at GrroupDocs Cloud and get your application KEY, import this python, module, initialize "Configuration. class with this keys, and then you are ready to use the API.
+    # It is easy to get started with GroupDocs.Rewriter Cloud, and there is nothing to install locally or configure servers. Create an account at GroupDocs Cloud and get your application KEY, import this python, module, initialize "Configuration. class with this keys, and then you are ready to use the API.
     # """
 )
