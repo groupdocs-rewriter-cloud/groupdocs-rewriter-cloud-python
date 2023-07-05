@@ -1,7 +1,7 @@
 # coding: utf-8
 # """Copyright
 # --------------------------------------------------------------------------------------------------------------------
-# <copyright company="Aspose" file="__init__.py">
+# <copyright company="Aspose" file="summarize_text.py">
 # Copyright (c) 2023 GroupDocs.Rewriter Cloud
 # </copyright>
 # <summary>
@@ -11,10 +11,10 @@
 # to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
 # copies of the Software, and to permit persons to whom the Software is
 # furnished to do so, subject to the following conditions:
-# 
+#
 # The above copyright notice and this permission notice shall be included in all
 # copies or substantial portions of the Software.
-# 
+#
 # THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
 # IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
 # FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
@@ -26,18 +26,38 @@
 # --------------------------------------------------------------------------------------------------------------------
 # """
 
-from .base_model import BaseModel
-from .disc_usage import DiscUsage
-from .error import Error
-from .error_details import ErrorDetails
-from .file_version import FileVersion
-from .file_versions import FileVersions
-from .files_list import FilesList
-from .files_upload_result import FilesUploadResult
-from .object_exist import ObjectExist
-from .storage_exist import StorageExist
-from .storage_file import StorageFile
-from .text_response import TextResponse
-from .document_response import DocumentResponse
-from .rewrite_text import RewriteText
-from .rewrite_document import RewriteDocument
+"""
+ * Creates body for a text summarization request
+"""
+import json
+
+
+class SummarizeText:
+    """
+        Attributes:
+          model_types (dict):   The key is attribute name
+                                and the value is attribute type.
+          attribute_map (dict): The key is attribute name
+                                and the value is json key in definition.
+        """
+    model_types = {
+        'Language': 'str',
+        'Text': 'str',
+    }
+
+    attribute_map = {
+        'Language': 'language',
+        'Text': 'text',
+    }
+
+    def __init__(self, language, text):
+        """
+        :param str language: language of text
+        :param str text: text to summarize
+        """
+        self.Language = language  # language of text
+        self.Text = text  # text to summarize
+
+    def to_string(self):
+        request = [{"language": self.Language, "text": self.Text}]
+        return json.dumps(request)

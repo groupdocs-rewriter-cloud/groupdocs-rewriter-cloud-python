@@ -2,7 +2,7 @@
 # """
 # --------------------------------------------------------------------------------------------------------------------
 #  <copyright company="Aspose" file="test_helper.py">
-#    Copyright (c) 2022 GroupDocs.Rewriter Cloud
+#    Copyright (c) 2023 GroupDocs.Rewriter Cloud
 #  </copyright>
 #  <summary>
 #   Permission is hereby granted, free of charge, to any person obtaining a copy

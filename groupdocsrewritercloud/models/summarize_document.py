@@ -1,7 +1,7 @@
 # coding: utf-8
 # """Copyright
 # --------------------------------------------------------------------------------------------------------------------
-# <copyright company="Aspose" file="rewrite_text.py">
+# <copyright company="Aspose" file="summarize_document.py">
 # Copyright (c) 2023 GroupDocs.Rewriter Cloud
 # </copyright>
 # <summary>
@@ -11,10 +11,10 @@
 # to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
 # copies of the Software, and to permit persons to whom the Software is
 # furnished to do so, subject to the following conditions:
-# 
+#
 # The above copyright notice and this permission notice shall be included in all
 # copies or substantial portions of the Software.
-# 
+#
 # THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
 # IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
 # FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
@@ -27,12 +27,12 @@
 # """
 
 """
- * Creates body for text rewriting request
+Represents information about strict regions to recognize text
 """
 import json
 
 
-class RewriteText:
+class SummarizeDocument:
     """
         Attributes:
           model_types (dict):   The key is attribute name
@@ -42,35 +42,48 @@ class RewriteText:
         """
     model_types = {
         'Language': 'str',
-        'Text': 'str',
-        'Tokenize': bool,
-        'Diversity': 'str',
-        'Suggestions': int
+        'Format': 'str',
+        'Outformat': 'str',
+        'Storage': 'str',
+        'Name': 'str',
+        'Folder': 'str',
+        'Savepath': 'str',
+        'Savefile': 'str'
     }
 
     attribute_map = {
         'Language': 'language',
-        'Text': 'text',
-        'Tokenize': 'tokenize',
-        'Diversity': 'diversity',
-        'Suggestions': 'suggestions'
+        'Format': 'format',
+        'Outformat': 'outformat',
+        'Storage': 'storage',
+        'Name': 'name',
+        'Folder': 'folder',
+        'Savepath': 'savepath',
+        'Savefile': 'savefile'
     }
 
-    def __init__(self, language, text, tokenize=False, diversity="off", suggestions=1):
+    def __init__(self, language, _format, outformat, storage, name, folder, savepath, savefile):
         """
-        :param str language: language of text
-        :param str text: text to paraphrase
-        :param bool tokenize: to tokenize input and output texts
-        :param str diversity: diversity level of output text
-        :param int suggestions: number of paraphrasing variants returned
+        :param str Language: language of document
+        :param str Format: format of file for summarization, put file extension here
+        :param str Outformat: format of summarized file, put file extension of desired format here
+        :param str Storage: name of storage
+        :param str Name: name of file to summarize
+        :param str Folder: folder(s) where file is saved
+        :param str Savepath: folder(s) for summarized file
+        :param str Savefile: name of summarized file
         """
-        self.Language = language  # language of text
-        self.Text = text  # text to paraphrase
-        self.Tokenize = tokenize  # tokenization mode
-        self.Diversity = diversity  # diversity of paraphrasing, "medium" or "high", default is "off"
-        self.Suggestions = suggestions  # number of suggested variants, 3 maximum
+        self.Language = language
+        self.Format = _format
+        self.Outformat = outformat
+        self.Storage = storage
+        self.Name = name
+        self.Folder = folder
+        self.Savepath = savepath
+        self.Savefile = savefile
 
     def to_string(self):
-        request = [{"language": self.Language, "text": self.Text, "tokenize": self.Tokenize,
-                    "diversity": self.Diversity, "suggestions": self.Suggestions}]
-        return json.dumps(request)
+        request = [{"language": self.Language, "format": self.Format, "outformat": self.Outformat,
+                    "storage": self.Storage, "name": self.Name, "folder": self.Folder, "savepath": self.Savepath,
+                    "savefile": self.Savefile}]
+        return  json.dumps(request)

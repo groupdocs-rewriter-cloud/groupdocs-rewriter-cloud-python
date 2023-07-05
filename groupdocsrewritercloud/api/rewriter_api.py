@@ -2,7 +2,7 @@
 # """Copyright
 # --------------------------------------------------------------------------------------------------------------------
 # <copyright company="Aspose" file="rewriter_api.py">
-# Copyright (c) 2022 GroupDocs.Rewriter Cloud
+# Copyright (c) 2023 GroupDocs.Rewriter Cloud
 # </copyright>
 # <summary>
 #
@@ -134,7 +134,7 @@ class RewriterApi(object):
 
     def __post_rewrite_document(self, body, **kwargs):
         assert body is not None
-        """ Rewrite document on Aspose Cloud Storage and save it
+        """ Rewrite a document on Aspose Cloud Storage and save it
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
@@ -172,6 +172,134 @@ class RewriterApi(object):
             ['application/json'])
 
         return self.api_client.call_api('/document', 'POST', path_params, query_params, header_params,
+                                        body=body_params, post_params=form_params, files=local_var_files,
+                                        response_type='DocumentResponse', async_req=params.get('async_req'),
+                                        _return_http_data_only=params.get('_return_http_data_only'),
+                                        collection_formats=collection_formats,
+                                        _preload_content=params.get('_preload_content', True),
+                                        _request_timeout=params.get('_request_timeout'))
+
+    def post_summarize_text(self, body, **kwargs):
+        """  Summarize a plain text provided in body's request
+
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+
+        :param bool async_req: Asynchronous request
+        :return: TextResponse . If the method is called asynchronously, returns the request thread.
+        """
+        kwargs['_return_http_data_only'] = True
+        if kwargs.get('async_req'):
+            return self.__post_summarize_text(body, **kwargs)
+        else:
+            (data) = self.__post_summarize_text(body, **kwargs)
+            return data
+
+    def __post_summarize_text(self, body, **kwargs):
+        #assert body is not None
+        """ Summarize a plain text provided in body's request
+
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+
+        :param bool async_req: Asynchronous request
+        :return: TextResponse . If the method is called asynchronously, returns the request thread.
+        """
+
+        all_params = ['async_req', '_return_http_data_only', '_preload_content', '_request_timeout']
+
+        params = locals()
+        for key, val in six.iteritems(params['kwargs']):
+            if key not in all_params:
+                raise TypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method get_convert_document_to_image" % key
+                )
+            params[key] = val
+        del params['kwargs']
+
+        collection_formats = {}
+        path_params = {}  # uri params #
+
+        query_params = {}  # content query params
+
+        header_params = {}
+        form_params = {}
+        local_var_files = {}
+        body_params = body
+
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.select_header_accept(
+            ['application/json'])
+
+        # HTTP header `Content-Type`
+        header_params['Content-Type'] = self.api_client.select_header_content_type(
+            ['application/json'])
+
+        return self.api_client.call_api('/summarize-text', 'POST', path_params, query_params, header_params,
+                                        body=body, post_params=form_params, files=local_var_files,
+                                        response_type='TextResponse', async_req=params.get('async_req'),
+                                        _return_http_data_only=params.get('_return_http_data_only'),
+                                        collection_formats=collection_formats,
+                                        _preload_content=params.get('_preload_content', True),
+                                        _request_timeout=params.get('_request_timeout'))
+
+    def post_summarize_document(self, body, **kwargs):
+        """ Summarize a document on Aspose Cloud Storage and save it
+
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+
+        :param bool async_req: Asynchronous request
+        :return: DocumentResponse . If the method is called asynchronously, returns the request thread.
+        """
+        kwargs['_return_http_data_only'] = True
+        if kwargs.get('async_req'):
+            return self.__post_summarize_document(body, **kwargs)
+        else:
+            (data) = self.__post_summarize_document(body, **kwargs)
+            return data
+
+    def __post_summarize_document(self, body, **kwargs):
+        assert body is not None
+        """ Summarize a document on Aspose Cloud Storage and save it
+
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+
+        :param bool async_req: Asynchronous request
+        :return: DocumentResponse . If the method is called asynchronously, returns the request thread.
+        """
+
+        all_params = ['async_req', '_return_http_data_only', '_preload_content', '_request_timeout']
+
+        params = locals()
+        for key, val in six.iteritems(params['kwargs']):
+            if key not in all_params:
+                raise TypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method get_convert_document_to_image" % key
+                )
+            params[key] = val
+        del params['kwargs']
+
+        collection_formats = {}
+        path_params = {}  # uri params #
+        query_params = {}  # content query params
+        header_params = {}
+        form_params = {}
+        local_var_files = {}
+        body_params = body
+
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.select_header_accept(
+            ['application/json'])
+
+        # HTTP header `Content-Type`
+        header_params['Content-Type'] = self.api_client.select_header_content_type(
+            ['application/json'])
+
+        return self.api_client.call_api('/summarize-document', 'POST', path_params, query_params, header_params,
                                         body=body_params, post_params=form_params, files=local_var_files,
                                         response_type='DocumentResponse', async_req=params.get('async_req'),
                                         _return_http_data_only=params.get('_return_http_data_only'),

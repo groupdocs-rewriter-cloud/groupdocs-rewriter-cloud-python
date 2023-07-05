@@ -1,7 +1,7 @@
 # """Copyright
 # --------------------------------------------------------------------------------------------------------------------
 # <copyright company="Aspose" file="__init__.py">
-# Copyright (c) 2022 GroupDocs.Rewriter Cloud
+# Copyright (c) 2023 GroupDocs.Rewriter Cloud
 # </copyright>
 # <summary>
 # 

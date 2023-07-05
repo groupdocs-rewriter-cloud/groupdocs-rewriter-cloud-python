@@ -50,10 +50,14 @@ Source file format | Paraphrased file format
 
 ## Supported languages
 
+- **ar** — to paraphrase Arabic text or document
+- **de** — to paraphrase German text or document
 - **en** — to paraphrase English text or document
+- **es** — to paraphrase Spanish text or document
+- **fr** — to paraphrase French text or document
+- **id** — to paraphrase Indonesian text or document
 - **ru** — to paraphrase Russian text or document
 - **uk** — to paraphrase Ukrainian text or document
-- **ar** — to paraphrase Arabic text or document
 
 ## Quick start
 
@@ -156,10 +160,10 @@ api = RewriterApi(configuration)
 language = "en"
 text = "GroupDocs Cloud customers come from a wide variety of industries and can be found all over the globe."
 
-rewriter = RewriteText(language, text, diversity = "medium", suggestions=2)
+rewriter = RewriteText(language, text, diversity="medium", suggestions=2)
 request = rewriter.to_string()
-res_text = api.post_rewrite_text(request)
-print(res_text.message)
+output = api.post_rewrite_text(request)
+print(output.result)
 ```
 
 ### Rewrite a Word document
@@ -180,16 +184,69 @@ language = "en"
 _format = "docx"
 outformat = "docx"
 storage = "internal"
-name = "test_python.docx"
+name = "test_file.docx"
 folder = ""
 savepath = ""
 savefile = "paraphrased.docx"
 
 rewriter = RewriteDocument(language, _format, outformat, storage, name, folder, savepath, savefile, diversity="medium")
-
 request = rewriter.to_string()
-res_doc = api.post_rewrite_document(request)
-print(res_doc.message)
+output = api.post_rewrite_document(request)
+print(output.message)
+```
+
+SDK also provides a tool for summarizing texts and documents in English. To do this, put the same parameters as for paraphrasing (except for "diversity" and "suggestions") in the requests body.
+
+### Summarize a text
+
+```python
+# Load the gem
+import groupdocs_rewriter_cloud
+
+# Get Client Id and Client Secret from https://dashboard.groupdocs.cloud
+my_client_id = ""
+my_client_secret = ""
+
+# Create instance of the API
+configuration = Configuration(apiKey=my_client_secret, appSid=my_client_id)
+api = RewriterApi(configuration)
+
+language = "en"
+text = "The modern Olympic Games are the leading international sporting events featuring summer and winter sports competitions in which thousands of athletes from around the world participate in a variety of competitions. The Olympic Games are considered the world's foremost sports competition with more than 200 teams, representing sovereign states and territories, participating. The Olympic Games are normally held every four years, and since 1994, have alternated between the Summer and Winter Olympics every two years during the four-year period."
+
+summarizer = SummarizeText(language, text)
+request = summarizer.to_string()
+output = api.post_summarize_text(request)
+print(output.result)
+```
+
+### Summarize a PDF document
+
+```python
+# Load the gem
+import groupdocs_rewriter_cloud
+# Get Client Id and Client Secret from https://dashboard.groupdocs.cloud
+my_client_id = ""
+my_client_secret = ""
+
+# Create instance of the API
+configuration = Configuration(apiKey=my_client_secret, appSid=my_client_id)
+api = RewriterApi(configuration)
+
+# Document summarization
+language = "en"
+_format = "pdf"
+outformat = "pdf"
+storage = "internal"
+name = "test_file.pdf"
+folder = ""
+savepath = ""
+savefile = "summarized.pdf"
+
+summarizer = SummarizeDocument(language, _format, outformat, storage, name, folder, savepath, savefile)
+request = summarizer.to_string()
+output = api.post_summarize_document(request)
+print(output.message)
 ```
 
 ## Other SDKs for GroupDocs.Rewriter Cloud

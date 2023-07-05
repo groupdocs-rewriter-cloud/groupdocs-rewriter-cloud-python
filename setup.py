@@ -4,7 +4,8 @@ from setuptools import setup, find_packages
 from os import path
 
 NAME = "groupdocs-rewriter-cloud"
-VERSION = "22.12.0"
+VERSION = "23.6"
+
 # To install the library, run the following
 #
 # python setup.py install
@@ -53,7 +54,7 @@ setup(
         'Programming Language :: Python :: 3.7',
         'Programming Language :: Python :: 3.8'
     ],
-    keywords=["GroupDocs.Rewriter Cloud API Reference", "Aspose", "GroupDocs", "Rewriter" "Rewriter Cloud"],
+    keywords=["GroupDocs.Rewriter Cloud API Reference", "Aspose", "GroupDocs", "Rewriter", "Rewriter Cloud"],
     install_requires=REQUIRES,
     packages=find_packages(),
     include_package_data=True
