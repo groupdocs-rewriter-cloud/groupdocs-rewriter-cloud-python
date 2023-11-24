@@ -67,13 +67,7 @@ To start using GroupDocs.Rewriter Cloud in your Python applications, follow a fe
 
 Supported versions of Python:
 
-- 2.7
-- 3
-- 3.4
-- 3.5
-- 3.6
-- 3.7
-- 3.8
+>= 3.7
 
 See [requirements.txt](requirements.txt) for the list of dependencies.
 
@@ -111,143 +105,164 @@ You should get a response that looks something like this:
 ```
 The access token will be valid for the number of seconds specified in the `expires_in` property. If it has expired, request a new one using the same credentials.
 
-### Installing GroupDocs.Rewriter Python SDK
+## Requirements.
 
-Install **groupdocs-rewriter-cloud** package with [PIP](https://pypi.org/project/pip/) from [PyPI](https://pypi.org/) by executing the following command:
+Python 3.7+
+
+## Installation & Usage
+### pip install
+
+If the python package is hosted on a repository, you can install directly using:
+
+```sh
+pip install git+https://github.com/groupdocs-rewriter-cloud/groupdocs-rewriter-cloud-python.git
+```
+(you may need to run `pip` with root permission: `sudo pip install git+https://github.com/groupdocs-rewriter-cloud/groupdocs-rewriter-cloud-python.git`)
+
+or
 
 ```sh
 pip install groupdocs-rewriter-cloud
 ```
 
-Alternatively, you can clone the repository and install it via [Setuptools](http://pypi.python.org/pypi/setuptools):
+Then import the package:
+```python
+import groupdocs_rewriter_cloud
+```
+
+### Setuptools
+
+Install via [Setuptools](http://pypi.python.org/pypi/setuptools).
 
 ```sh
-python setup.py install
+python setup.py install --user
+```
+(or `sudo python setup.py install` to install the package for all users)
+
+Then import the package:
+```python
+import groupdocs_rewriter_cloud
 ```
 
-### Running a demo project
+### Tests
 
-- Get the SDK.
-- Set your client\_id & client\_secret credentials.
-- Run **Jupyter** notebook [demo.ipynb](https://github.com/groupdocs-rewriter-cloud/groupdocs-rewriter-cloud-python/blob/master/demo.ipynb)
+Execute `pytest` to run the tests.
 
-#### Demo project structure
+## Getting Started
 
-Component | Type | Description
---------- | ---- | -----------
-**groupdocsrewritercloud** | Module | Python SDK for GroupDocs.Rewriter Cloud
-**test** | Module | Unit tests
-**demo** | Notebook | Sample Jupyter notebook
-
-## Examples
-
-The following code snippets demonstrate how to use the GroupDocs.Rewriter Python SDK to accomplish various tasks.
-
-### Rewrite a text
+Please follow the [installation procedure](#installation--usage) and then run the following:
 
 ```python
-# Load the gem
+
+import time
 import groupdocs_rewriter_cloud
+from groupdocs_rewriter_cloud.rest import ApiException
+from pprint import pprint
 
-# Get Client Id and Client Secret from https://dashboard.groupdocs.cloud
-my_client_id = ""
-my_client_secret = ""
+# Defining the host is optional and defaults to https://api.groupdocs.cloud/v2.0/rewriter
+# See configuration.py for a list of all supported configuration parameters.
+configuration = groupdocs_rewriter_cloud.Configuration(
+    host = "https://api.groupdocs.cloud/v2.0/rewriter"
+)
 
-# Create instance of the API
-configuration = Configuration(apiKey=my_client_secret, appSid=my_client_id)
-api = RewriterApi(configuration)
 
-language = "en"
-text = "GroupDocs Cloud customers come from a wide variety of industries and can be found all over the globe."
 
-rewriter = RewriteText(language, text, diversity="medium", suggestions=2)
-request = rewriter.to_string()
-output = api.post_rewrite_text(request)
-print(output.result)
+# Enter a context with an instance of the API client
+with groupdocs_rewriter_cloud.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = groupdocs_rewriter_cloud.DetectApi(api_client)
+    detection_file_request = groupdocs_rewriter_cloud.DetectionFileRequest() # DetectionFileRequest | String in body of request, containing JSON with parameters for detecting. (optional)
+
+    try:
+        # Detect paraphrasing in the document
+        api_response = api_instance.detect_document_post(detection_file_request=detection_file_request)
+        print("The response of DetectApi->detect_document_post:\n")
+        pprint(api_response)
+    except ApiException as e:
+        print("Exception when calling DetectApi->detect_document_post: %s\n" % e)
+
 ```
 
-### Rewrite a Word document
+## Documentation for API Endpoints
 
-```python
-# Load the gem
-import groupdocs_rewriter_cloud
-# Get Client Id and Client Secret from https://dashboard.groupdocs.cloud
-my_client_id = ""
-my_client_secret = ""
+All URIs are relative to *https://api.groupdocs.cloud/v2.0/rewriter*
 
-# Create instance of the API
-configuration = Configuration(apiKey=my_client_secret, appSid=my_client_id)
-api = RewriterApi(configuration)
+Class | Method | HTTP request | Description
+------------ | ------------- | ------------- | -------------
+*DetectApi* | [**detect_document_post**](docs\DetectApi.md#detect_document_post) | **POST** /detect/document | Detect paraphrasing in the document
+*DetectApi* | [**detect_document_request_id_get**](docs\DetectApi.md#detect_document_request_id_get) | **GET** /detect/document/{requestId} | Return document detection status.  Also return probability of paraphrasing for the whole document and per paragraph
+*DetectApi* | [**detect_document_trial_post**](docs\DetectApi.md#detect_document_trial_post) | **POST** /detect/document/trial | Trial detect paraphrasing in the document
+*DetectApi* | [**detect_hc_get**](docs\DetectApi.md#detect_hc_get) | **GET** /detect/hc | Health check for detect all services.
+*DetectApi* | [**detect_text_post**](docs\DetectApi.md#detect_text_post) | **POST** /detect/text | Detect paraphrasing in text
+*DetectApi* | [**detect_text_request_id_get**](docs\DetectApi.md#detect_text_request_id_get) | **GET** /detect/text/{requestId} | Return text detection status.  Also return probability of paraphrasing for the whole text
+*DetectApi* | [**detect_text_trial_post**](docs\DetectApi.md#detect_text_trial_post) | **POST** /detect/text/trial | Trial detect paraphrasing in text
+*ParaphraseApi* | [**paraphrase_document_post**](docs\ParaphraseApi.md#paraphrase_document_post) | **POST** /paraphrase/document | Paraphrase document
+*ParaphraseApi* | [**paraphrase_document_request_id_get**](docs\ParaphraseApi.md#paraphrase_document_request_id_get) | **GET** /paraphrase/document/{requestId} | Return document rewriting status.  Also return URLs for downloading of rewritten document if paraphrasig was successful
+*ParaphraseApi* | [**paraphrase_document_trial_post**](docs\ParaphraseApi.md#paraphrase_document_trial_post) | **POST** /paraphrase/document/trial | Trial paraphrase document
+*ParaphraseApi* | [**paraphrase_hc_get**](docs\ParaphraseApi.md#paraphrase_hc_get) | **GET** /paraphrase/hc | Health check for all paraphrase services.
+*ParaphraseApi* | [**paraphrase_supported_conversions_get**](docs\ParaphraseApi.md#paraphrase_supported_conversions_get) | **GET** /paraphrase/supportedConversions | 
+*ParaphraseApi* | [**paraphrase_text_post**](docs\ParaphraseApi.md#paraphrase_text_post) | **POST** /paraphrase/text | Rewrite text
+*ParaphraseApi* | [**paraphrase_text_request_id_get**](docs\ParaphraseApi.md#paraphrase_text_request_id_get) | **GET** /paraphrase/text/{requestId} | Return text rewriting status.  Also return rewritten text if paraphrasing was successful
+*ParaphraseApi* | [**paraphrase_text_trial_post**](docs\ParaphraseApi.md#paraphrase_text_trial_post) | **POST** /paraphrase/text/trial | Trial rewrite text
+*SimplifyApi* | [**simplify_document_post**](docs\SimplifyApi.md#simplify_document_post) | **POST** /simplify/document | Simplify document
+*SimplifyApi* | [**simplify_document_request_id_get**](docs\SimplifyApi.md#simplify_document_request_id_get) | **GET** /simplify/document/{requestId} | Return document simplifying status.  Also return URLs for downloading of simplified document if paraphrasig was successful
+*SimplifyApi* | [**simplify_document_trial_post**](docs\SimplifyApi.md#simplify_document_trial_post) | **POST** /simplify/document/trial | Trial simplify document
+*SimplifyApi* | [**simplify_hc_get**](docs\SimplifyApi.md#simplify_hc_get) | **GET** /simplify/hc | Health check for all simplify services.
+*SimplifyApi* | [**simplify_supported_conversions_get**](docs\SimplifyApi.md#simplify_supported_conversions_get) | **GET** /simplify/supportedConversions | 
+*SimplifyApi* | [**simplify_text_post**](docs\SimplifyApi.md#simplify_text_post) | **POST** /simplify/text | Simplify text
+*SimplifyApi* | [**simplify_text_request_id_get**](docs\SimplifyApi.md#simplify_text_request_id_get) | **GET** /simplify/text/{requestId} | Return text simplifying status.  Also return simplified text if paraphrasing was successful
+*SimplifyApi* | [**simplify_text_trial_post**](docs\SimplifyApi.md#simplify_text_trial_post) | **POST** /simplify/text/trial | Trial simplify text
+*SummarizeApi* | [**summarize_document_post**](docs\SummarizeApi.md#summarize_document_post) | **POST** /summarize/document | Summarize document
+*SummarizeApi* | [**summarize_document_request_id_get**](docs\SummarizeApi.md#summarize_document_request_id_get) | **GET** /summarize/document/{requestId} | Return document summarizing status.  Also return URLs for downloading of summarized document if summarization was successful
+*SummarizeApi* | [**summarize_document_trial_post**](docs\SummarizeApi.md#summarize_document_trial_post) | **POST** /summarize/document/trial | Trial summarize document
+*SummarizeApi* | [**summarize_hc_get**](docs\SummarizeApi.md#summarize_hc_get) | **GET** /summarize/hc | Health check for all summarize services.
+*SummarizeApi* | [**summarize_supported_conversions_get**](docs\SummarizeApi.md#summarize_supported_conversions_get) | **GET** /summarize/supportedConversions | 
+*SummarizeApi* | [**summarize_text_post**](docs\SummarizeApi.md#summarize_text_post) | **POST** /summarize/text | Summarize text
+*SummarizeApi* | [**summarize_text_request_id_get**](docs\SummarizeApi.md#summarize_text_request_id_get) | **GET** /summarize/text/{requestId} | Return text summarizing status status.  Also return rewrote text if translation was successful
+*SummarizeApi* | [**summarize_text_trial_post**](docs\SummarizeApi.md#summarize_text_trial_post) | **POST** /summarize/text/trial | Trial summarize text
+*SynonymizeApi* | [**synonymize_hc_get**](docs\SynonymizeApi.md#synonymize_hc_get) | **GET** /synonymize/hc | Health check for all synonymizer services.
+*SynonymizeApi* | [**synonymize_text_post**](docs\SynonymizeApi.md#synonymize_text_post) | **POST** /synonymize/text | Synonymize word
+*SynonymizeApi* | [**synonymize_text_request_id_get**](docs\SynonymizeApi.md#synonymize_text_request_id_get) | **GET** /synonymize/text/{requestId} | Return text synonymizing status.  Also return list of synonyms if it was successful
+*SynonymizeApi* | [**synonymize_text_trial_post**](docs\SynonymizeApi.md#synonymize_text_trial_post) | **POST** /synonymize/text/trial | Trial synonymize word
 
-# Document paraphrasing
-language = "en"
-_format = "docx"
-outformat = "docx"
-storage = "internal"
-name = "test_file.docx"
-folder = ""
-savepath = ""
-savefile = "paraphrased.docx"
 
-rewriter = RewriteDocument(language, _format, outformat, storage, name, folder, savepath, savefile, diversity="medium")
-request = rewriter.to_string()
-output = api.post_rewrite_document(request)
-print(output.message)
-```
+## Documentation For Models
 
-SDK also provides a tool for summarizing texts and documents in English. To do this, put the same parameters as for paraphrasing (except for "diversity" and "suggestions") in the requests body.
+ - [BaseTextRequest](docs\BaseTextRequest.md)
+ - [CloudTextRequest](docs\CloudTextRequest.md)
+ - [DegreeEnum](docs\DegreeEnum.md)
+ - [DetectionFileRequest](docs\DetectionFileRequest.md)
+ - [DetectionFileResponse](docs\DetectionFileResponse.md)
+ - [DetectionTextRequest](docs\DetectionTextRequest.md)
+ - [DetectionTextResponse](docs\DetectionTextResponse.md)
+ - [DetectionTrialFileRequest](docs\DetectionTrialFileRequest.md)
+ - [FileSavingMode](docs\FileSavingMode.md)
+ - [HealthCheckInfo](docs\HealthCheckInfo.md)
+ - [HealthCheckResponse](docs\HealthCheckResponse.md)
+ - [HttpStatusCode](docs\HttpStatusCode.md)
+ - [Model](docs\Model.md)
+ - [Opt](docs\Opt.md)
+ - [ParaphraseFileRequest](docs\ParaphraseFileRequest.md)
+ - [ParaphraseFileResponse](docs\ParaphraseFileResponse.md)
+ - [ParaphraseTextRequest](docs\ParaphraseTextRequest.md)
+ - [ParaphraseTextResponse](docs\ParaphraseTextResponse.md)
+ - [ParaphraseTrialFileRequest](docs\ParaphraseTrialFileRequest.md)
+ - [SimplifyFileRequest](docs\SimplifyFileRequest.md)
+ - [SimplifyFileResponse](docs\SimplifyFileResponse.md)
+ - [SimplifyTextResponse](docs\SimplifyTextResponse.md)
+ - [SimplifyTrialFileRequest](docs\SimplifyTrialFileRequest.md)
+ - [StatusResponse](docs\StatusResponse.md)
+ - [SummarizationFileRequest](docs\SummarizationFileRequest.md)
+ - [SummarizationFileResponse](docs\SummarizationFileResponse.md)
+ - [SummarizationTextRequest](docs\SummarizationTextRequest.md)
+ - [SummarizationTextResponse](docs\SummarizationTextResponse.md)
+ - [SummarizationTrialFileRequest](docs\SummarizationTrialFileRequest.md)
+ - [SupportedConversionsFormats](docs\SupportedConversionsFormats.md)
+ - [SynonymizeTextRequest](docs\SynonymizeTextRequest.md)
+ - [SynonymizeTextResponse](docs\SynonymizeTextResponse.md)
+ - [Tokenizer](docs\Tokenizer.md)
+ - [TrialSupportedFormats](docs\TrialSupportedFormats.md)
 
-### Summarize a text
-
-```python
-# Load the gem
-import groupdocs_rewriter_cloud
-
-# Get Client Id and Client Secret from https://dashboard.groupdocs.cloud
-my_client_id = ""
-my_client_secret = ""
-
-# Create instance of the API
-configuration = Configuration(apiKey=my_client_secret, appSid=my_client_id)
-api = RewriterApi(configuration)
-
-language = "en"
-text = "The modern Olympic Games are the leading international sporting events featuring summer and winter sports competitions in which thousands of athletes from around the world participate in a variety of competitions. The Olympic Games are considered the world's foremost sports competition with more than 200 teams, representing sovereign states and territories, participating. The Olympic Games are normally held every four years, and since 1994, have alternated between the Summer and Winter Olympics every two years during the four-year period."
-
-summarizer = SummarizeText(language, text)
-request = summarizer.to_string()
-output = api.post_summarize_text(request)
-print(output.result)
-```
-
-### Summarize a PDF document
-
-```python
-# Load the gem
-import groupdocs_rewriter_cloud
-# Get Client Id and Client Secret from https://dashboard.groupdocs.cloud
-my_client_id = ""
-my_client_secret = ""
-
-# Create instance of the API
-configuration = Configuration(apiKey=my_client_secret, appSid=my_client_id)
-api = RewriterApi(configuration)
-
-# Document summarization
-language = "en"
-_format = "pdf"
-outformat = "pdf"
-storage = "internal"
-name = "test_file.pdf"
-folder = ""
-savepath = ""
-savefile = "summarized.pdf"
-
-summarizer = SummarizeDocument(language, _format, outformat, storage, name, folder, savepath, savefile)
-request = summarizer.to_string()
-output = api.post_summarize_document(request)
-print(output.message)
-```
 
 ## Other SDKs for GroupDocs.Rewriter Cloud
 
