@@ -5,7 +5,6 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **language** | **str** | Set language of text | 
-**file** | **bytearray** | Source file format | [optional] 
 **url** | **str** |  | [optional] 
 **origin** | **str** | Information about SDK user, like a User-Agent | [optional] 
 **original_name** | **str** |  | [optional] 
@@ -13,7 +12,7 @@ Name | Type | Description | Notes
 **output_format** | [**SupportedConversionsFormats**](SupportedConversionsFormats.md) |  | 
 **summarization_degree** | [**DegreeEnum**](DegreeEnum.md) |  | [optional] 
 **min_length** | **int** | Minimum length of the target text | [optional] 
-**format** | **str** |  | [optional] 
+**format** | [**SummarizationSupportedFormats**](SummarizationSupportedFormats.md) |  | [optional] 
 
 ## Example
 

@@ -13,75 +13,42 @@
 """
 
 
-import unittest
+import unittest, os, time
 
 import groupdocs_rewriter_cloud
 from groupdocs_rewriter_cloud.api.simplify_api import SimplifyApi  # noqa: E501
+from groupdocs_rewriter_cloud.api.file_api import FileApi
+from groupdocs_rewriter_cloud.models import SimplifySupportedFromats, SimplifyFileRequest, SupportedConversionsFormats
 from groupdocs_rewriter_cloud.rest import ApiException
 
 
 class TestSimplifyApi(unittest.TestCase):
     """SimplifyApi unit test stubs"""
 
+    def get_file_result(self, request_id: str):
+        while True:
+            file_response = self.api.simplify_document_request_id_get(request_id)
+            if file_response.status == groupdocs_rewriter_cloud.models.HttpStatusCode.OK:
+                print(f'[{file_response.status}] {file_response.message}')
+                break
+            time.sleep(2)
     def setUp(self):
         self.api = groupdocs_rewriter_cloud.api.simplify_api.SimplifyApi()  # noqa: E501
+        self.file_api = FileApi()
+        self.api.api_client.configuration.client_id = os.getenv('GROUPDOCS_REWRITER_API_ID')
+        self.api.api_client.configuration.client_secret = os.getenv('GROUPDOCS_REWRITER_API_SECRET')
 
-    def tearDown(self):
-        pass
+        self.pdf_url = self.file_api.file_upload_post(format='Pdf', file='test_data/rewriter_test.pdf')
+        self.docx_url = self.file_api.file_upload_post(format='Docx', file='test_data/rewriter_test.docx')
 
     def test_simplify_document_post(self):
-        """Test case for simplify_document_post
-
-        Simplify document  # noqa: E501
-        """
-        pass
-
-    def test_simplify_document_request_id_get(self):
-        """Test case for simplify_document_request_id_get
-
-        Return document simplifying status.  Also return URLs for downloading of simplified document if paraphrasig was successful  # noqa: E501
-        """
-        pass
-
-    def test_simplify_document_trial_post(self):
-        """Test case for simplify_document_trial_post
-
-        Trial simplify document  # noqa: E501
-        """
-        pass
-
-    def test_simplify_hc_get(self):
-        """Test case for simplify_hc_get
-
-        Health check for all simplify services.  # noqa: E501
-        """
-        pass
-
-    def test_simplify_supported_conversions_get(self):
-        """Test case for simplify_supported_conversions_get
-
-        """
-        pass
-
-    def test_simplify_text_post(self):
-        """Test case for simplify_text_post
-
-        Simplify text  # noqa: E501
-        """
-        pass
-
-    def test_simplify_text_request_id_get(self):
-        """Test case for simplify_text_request_id_get
-
-        Return text simplifying status.  Also return simplified text if paraphrasing was successful  # noqa: E501
-        """
-        pass
-
-    def test_simplify_text_trial_post(self):
-        """Test case for simplify_text_trial_post
-
-        Trial simplify text  # noqa: E501
-        """
+        request = groupdocs_rewriter_cloud.SimplifyFileRequest(language='en', url=self.pdf_url,
+                                                                 format=SimplifySupportedFromats.PDF,
+                                                                 outputFormat=SupportedConversionsFormats.PDF)
+        status = self.api.simplify_document_post(request)
+        if status.status == groupdocs_rewriter_cloud.models.HttpStatusCode.ACCEPTED:
+            print(f'Pdf document simplifying started: {status.id}')
+            self.get_file_result(status.id)
         pass
 
 

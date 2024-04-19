@@ -13,69 +13,41 @@
 """
 
 
-import unittest
+import unittest, os, time
 
 import groupdocs_rewriter_cloud
 from groupdocs_rewriter_cloud.api.detect_api import DetectApi  # noqa: E501
+from groupdocs_rewriter_cloud.api.file_api import FileApi
+from groupdocs_rewriter_cloud.models.detection_file_request import DetectionSupportedFormats, DetectionFileRequest
 from groupdocs_rewriter_cloud.rest import ApiException
 
 
 class TestDetectApi(unittest.TestCase):
     """DetectApi unit test stubs"""
 
-    def setUp(self):
-        self.api = groupdocs_rewriter_cloud.api.detect_api.DetectApi()  # noqa: E501
+    def get_file_result(self, request_id: str):
+        while True:
+            file_response = self.api.detect_document_request_id_get(request_id)
+            if file_response.status == groupdocs_rewriter_cloud.models.HttpStatusCode.OK:
+                print(f'[{file_response.status}] {file_response.message}')
+                break
+            time.sleep(2)
 
-    def tearDown(self):
-        pass
+    def setUp(self):
+        self.api = DetectApi()  # noqa: E501
+        self.file_api = FileApi()
+        self.api.api_client.configuration.client_id = os.getenv('GROUPDOCS_REWRITER_API_ID')
+        self.api.api_client.configuration.client_secret = os.getenv('GROUPDOCS_REWRITER_API_SECRET')
+
+        self.pdf_url = self.file_api.file_upload_post(format='Pdf', file='test_data/rewriter_test.pdf')
+        self.docx_url = self.file_api.file_upload_post(format='Docx', file='test_data/rewriter_test.docx')
 
     def test_detect_document_post(self):
-        """Test case for detect_document_post
-
-        Detect paraphrasing in the document  # noqa: E501
-        """
-        pass
-
-    def test_detect_document_request_id_get(self):
-        """Test case for detect_document_request_id_get
-
-        Return document detection status.  Also return probability of paraphrasing for the whole document and per paragraph  # noqa: E501
-        """
-        pass
-
-    def test_detect_document_trial_post(self):
-        """Test case for detect_document_trial_post
-
-        Trial detect paraphrasing in the document  # noqa: E501
-        """
-        pass
-
-    def test_detect_hc_get(self):
-        """Test case for detect_hc_get
-
-        Health check for detect all services.  # noqa: E501
-        """
-        pass
-
-    def test_detect_text_post(self):
-        """Test case for detect_text_post
-
-        Detect paraphrasing in text  # noqa: E501
-        """
-        pass
-
-    def test_detect_text_request_id_get(self):
-        """Test case for detect_text_request_id_get
-
-        Return text detection status.  Also return probability of paraphrasing for the whole text  # noqa: E501
-        """
-        pass
-
-    def test_detect_text_trial_post(self):
-        """Test case for detect_text_trial_post
-
-        Trial detect paraphrasing in text  # noqa: E501
-        """
+        request = DetectionFileRequest(language='en', url=self.docx_url, format=DetectionSupportedFormats.PDF)
+        status = self.api.detect_document_post(request)
+        if status.status == groupdocs_rewriter_cloud.models.HttpStatusCode.ACCEPTED:
+            print(f'Docx document detecting started: {status.id}')
+            self.get_file_result(status.id)
         pass
 
 

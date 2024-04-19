@@ -196,6 +196,8 @@ Class | Method | HTTP request | Description
 *DetectApi* | [**detect_text_post**](docs\DetectApi.md#detect_text_post) | **POST** /detect/text | Detect paraphrasing in text
 *DetectApi* | [**detect_text_request_id_get**](docs\DetectApi.md#detect_text_request_id_get) | **GET** /detect/text/{requestId} | Return text detection status.  Also return probability of paraphrasing for the whole text
 *DetectApi* | [**detect_text_trial_post**](docs\DetectApi.md#detect_text_trial_post) | **POST** /detect/text/trial | Trial detect paraphrasing in text
+*FileApi* | [**file_upload_post**](docs\FileApi.md#file_upload_post) | **POST** /file/upload | 
+*InfoApi* | [**info_available_languages_get**](docs\InfoApi.md#info_available_languages_get) | **GET** /info/availableLanguages | 
 *ParaphraseApi* | [**paraphrase_document_post**](docs\ParaphraseApi.md#paraphrase_document_post) | **POST** /paraphrase/document | Paraphrase document
 *ParaphraseApi* | [**paraphrase_document_request_id_get**](docs\ParaphraseApi.md#paraphrase_document_request_id_get) | **GET** /paraphrase/document/{requestId} | Return document rewriting status.  Also return URLs for downloading of rewritten document if paraphrasig was successful
 *ParaphraseApi* | [**paraphrase_document_trial_post**](docs\ParaphraseApi.md#paraphrase_document_trial_post) | **POST** /paraphrase/document/trial | Trial paraphrase document
@@ -220,6 +222,7 @@ Class | Method | HTTP request | Description
 *SummarizeApi* | [**summarize_text_post**](docs\SummarizeApi.md#summarize_text_post) | **POST** /summarize/text | Summarize text
 *SummarizeApi* | [**summarize_text_request_id_get**](docs\SummarizeApi.md#summarize_text_request_id_get) | **GET** /summarize/text/{requestId} | Return text summarizing status status.  Also return rewrote text if translation was successful
 *SummarizeApi* | [**summarize_text_trial_post**](docs\SummarizeApi.md#summarize_text_trial_post) | **POST** /summarize/text/trial | Trial summarize text
+*SwaggerApi* | [**swagger_spec_get**](docs\SwaggerApi.md#swagger_spec_get) | **GET** /swagger/spec | 
 *SynonymizeApi* | [**synonymize_hc_get**](docs\SynonymizeApi.md#synonymize_hc_get) | **GET** /synonymize/hc | Health check for all synonymizer services.
 *SynonymizeApi* | [**synonymize_text_post**](docs\SynonymizeApi.md#synonymize_text_post) | **POST** /synonymize/text | Synonymize word
 *SynonymizeApi* | [**synonymize_text_request_id_get**](docs\SynonymizeApi.md#synonymize_text_request_id_get) | **GET** /synonymize/text/{requestId} | Return text synonymizing status.  Also return list of synonyms if it was successful
@@ -233,6 +236,7 @@ Class | Method | HTTP request | Description
  - [DegreeEnum](docs\DegreeEnum.md)
  - [DetectionFileRequest](docs\DetectionFileRequest.md)
  - [DetectionFileResponse](docs\DetectionFileResponse.md)
+ - [DetectionSupportedFormats](docs\DetectionSupportedFormats.md)
  - [DetectionTextRequest](docs\DetectionTextRequest.md)
  - [DetectionTextResponse](docs\DetectionTextResponse.md)
  - [DetectionTrialFileRequest](docs\DetectionTrialFileRequest.md)
@@ -240,20 +244,24 @@ Class | Method | HTTP request | Description
  - [HealthCheckInfo](docs\HealthCheckInfo.md)
  - [HealthCheckResponse](docs\HealthCheckResponse.md)
  - [HttpStatusCode](docs\HttpStatusCode.md)
+ - [LanguageInfo](docs\LanguageInfo.md)
  - [Model](docs\Model.md)
  - [Opt](docs\Opt.md)
  - [ParaphraseFileRequest](docs\ParaphraseFileRequest.md)
  - [ParaphraseFileResponse](docs\ParaphraseFileResponse.md)
+ - [ParaphraseSupportedFormats](docs\ParaphraseSupportedFormats.md)
  - [ParaphraseTextRequest](docs\ParaphraseTextRequest.md)
  - [ParaphraseTextResponse](docs\ParaphraseTextResponse.md)
  - [ParaphraseTrialFileRequest](docs\ParaphraseTrialFileRequest.md)
  - [SimplifyFileRequest](docs\SimplifyFileRequest.md)
  - [SimplifyFileResponse](docs\SimplifyFileResponse.md)
+ - [SimplifySupportedFromats](docs\SimplifySupportedFromats.md)
  - [SimplifyTextResponse](docs\SimplifyTextResponse.md)
  - [SimplifyTrialFileRequest](docs\SimplifyTrialFileRequest.md)
  - [StatusResponse](docs\StatusResponse.md)
  - [SummarizationFileRequest](docs\SummarizationFileRequest.md)
  - [SummarizationFileResponse](docs\SummarizationFileResponse.md)
+ - [SummarizationSupportedFormats](docs\SummarizationSupportedFormats.md)
  - [SummarizationTextRequest](docs\SummarizationTextRequest.md)
  - [SummarizationTextResponse](docs\SummarizationTextResponse.md)
  - [SummarizationTrialFileRequest](docs\SummarizationTrialFileRequest.md)

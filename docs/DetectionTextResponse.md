@@ -4,7 +4,7 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**status_code** | [**HttpStatusCode**](HttpStatusCode.md) |  | [optional] 
+**status** | [**HttpStatusCode**](HttpStatusCode.md) |  | [optional] 
 **message** | **str** | Information about process | [optional] 
 **probability** | **float** | The probability that the text turned out to be paraphrased | [optional] 
 **is_paraphrased** | **bool** |  | [optional] 

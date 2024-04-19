@@ -5,13 +5,12 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **language** | **str** | Set language of text | 
-**file** | **bytearray** | Source file format | [optional] 
 **url** | **str** |  | [optional] 
 **origin** | **str** | Information about SDK user, like a User-Agent | [optional] 
 **original_name** | **str** |  | [optional] 
 **saving_mode** | [**FileSavingMode**](FileSavingMode.md) |  | [optional] 
 **min_length** | **int** |  | [optional] 
-**format** | **str** |  | [optional] 
+**format** | [**DetectionSupportedFormats**](DetectionSupportedFormats.md) |  | [optional] 
 
 ## Example
 

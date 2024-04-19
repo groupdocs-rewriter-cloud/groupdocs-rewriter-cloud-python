@@ -4,7 +4,7 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**status_code** | [**HttpStatusCode**](HttpStatusCode.md) |  | [optional] 
+**status** | [**HttpStatusCode**](HttpStatusCode.md) |  | [optional] 
 **message** | **str** | Information about process | [optional] 
 **simplify_reult** | **str** |  | [optional] 
 **simplify_results** | **List[str]** |  | [optional] 

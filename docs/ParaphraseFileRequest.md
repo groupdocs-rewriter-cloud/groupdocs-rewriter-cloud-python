@@ -5,14 +5,13 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **language** | **str** | Set language of text | 
-**file** | **bytearray** | Source file format | [optional] 
 **url** | **str** |  | [optional] 
 **origin** | **str** | Information about SDK user, like a User-Agent | [optional] 
 **original_name** | **str** |  | [optional] 
 **saving_mode** | [**FileSavingMode**](FileSavingMode.md) |  | [optional] 
 **output_format** | [**SupportedConversionsFormats**](SupportedConversionsFormats.md) |  | 
 **diversity_degree** | [**DegreeEnum**](DegreeEnum.md) |  | [optional] 
-**format** | **str** |  | [optional] 
+**format** | [**ParaphraseSupportedFormats**](ParaphraseSupportedFormats.md) |  | [optional] 
 
 ## Example
 
