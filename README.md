@@ -50,6 +50,7 @@ Please visit [Supported Formats](https://docs.groupdocs.cloud/rewriter/supported
 - **sk** — to process Slovak text or document
 - **pt** — to process Portuguese text or document
 - **it** — to process Italian text or document
+- **th** — to process Thai text or document
 
 ## JSON Request Details
 
