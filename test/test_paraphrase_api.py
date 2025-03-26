@@ -35,7 +35,8 @@ class TestParaphraseApi(unittest.TestCase):
         self.file_api = groupdocs_rewriter_cloud.FileApi()
         self.api.api_client.configuration.client_id = os.getenv('GROUPDOCS_REWRITER_API_ID')
         self.api.api_client.configuration.client_secret = os.getenv('GROUPDOCS_REWRITER_API_SECRET')
-
+        self.api.api_client.configuration.host = 'http://localhost:5000'
+        self.api.api_client.configuration.auth_settings()
         self.pdf_url = self.file_api.file_upload_post(format='pdf', file='test_data/rewriter_test.pdf')
         self.docx_url = self.file_api.file_upload_post(format='docx', file='test_data/rewriter_test.docx')
 

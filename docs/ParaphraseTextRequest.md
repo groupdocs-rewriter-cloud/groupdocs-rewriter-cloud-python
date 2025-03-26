@@ -2,6 +2,7 @@
 
 
 ## Properties
+
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **language** | **str** | Set language of text | 
@@ -22,12 +23,12 @@ json = "{}"
 # create an instance of ParaphraseTextRequest from a JSON string
 paraphrase_text_request_instance = ParaphraseTextRequest.from_json(json)
 # print the JSON string representation of the object
-print ParaphraseTextRequest.to_json()
+print(ParaphraseTextRequest.to_json())
 
 # convert the object into a dict
 paraphrase_text_request_dict = paraphrase_text_request_instance.to_dict()
 # create an instance of ParaphraseTextRequest from a dict
-paraphrase_text_request_form_dict = paraphrase_text_request.from_dict(paraphrase_text_request_dict)
+paraphrase_text_request_from_dict = ParaphraseTextRequest.from_dict(paraphrase_text_request_dict)
 ```
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

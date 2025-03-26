@@ -2,6 +2,7 @@
 
 
 ## Properties
+
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **language** | **str** | Set language of text | 
@@ -19,12 +20,12 @@ json = "{}"
 # create an instance of BaseTextRequest from a JSON string
 base_text_request_instance = BaseTextRequest.from_json(json)
 # print the JSON string representation of the object
-print BaseTextRequest.to_json()
+print(BaseTextRequest.to_json())
 
 # convert the object into a dict
 base_text_request_dict = base_text_request_instance.to_dict()
 # create an instance of BaseTextRequest from a dict
-base_text_request_form_dict = base_text_request.from_dict(base_text_request_dict)
+base_text_request_from_dict = BaseTextRequest.from_dict(base_text_request_dict)
 ```
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

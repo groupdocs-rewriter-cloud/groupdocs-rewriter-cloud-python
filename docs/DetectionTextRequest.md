@@ -2,6 +2,7 @@
 
 
 ## Properties
+
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **language** | **str** | Set language of text | 
@@ -19,12 +20,12 @@ json = "{}"
 # create an instance of DetectionTextRequest from a JSON string
 detection_text_request_instance = DetectionTextRequest.from_json(json)
 # print the JSON string representation of the object
-print DetectionTextRequest.to_json()
+print(DetectionTextRequest.to_json())
 
 # convert the object into a dict
 detection_text_request_dict = detection_text_request_instance.to_dict()
 # create an instance of DetectionTextRequest from a dict
-detection_text_request_form_dict = detection_text_request.from_dict(detection_text_request_dict)
+detection_text_request_from_dict = DetectionTextRequest.from_dict(detection_text_request_dict)
 ```
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

@@ -2,6 +2,7 @@
 
 
 ## Properties
+
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **language** | **str** | Set language of text | 
@@ -22,12 +23,12 @@ json = "{}"
 # create an instance of DetectionFileRequest from a JSON string
 detection_file_request_instance = DetectionFileRequest.from_json(json)
 # print the JSON string representation of the object
-print DetectionFileRequest.to_json()
+print(DetectionFileRequest.to_json())
 
 # convert the object into a dict
 detection_file_request_dict = detection_file_request_instance.to_dict()
 # create an instance of DetectionFileRequest from a dict
-detection_file_request_form_dict = detection_file_request.from_dict(detection_file_request_dict)
+detection_file_request_from_dict = DetectionFileRequest.from_dict(detection_file_request_dict)
 ```
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

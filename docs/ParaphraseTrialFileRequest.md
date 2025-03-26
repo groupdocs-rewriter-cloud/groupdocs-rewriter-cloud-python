@@ -2,6 +2,7 @@
 
 
 ## Properties
+
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **language** | **str** | Set language of text | 
@@ -22,12 +23,12 @@ json = "{}"
 # create an instance of ParaphraseTrialFileRequest from a JSON string
 paraphrase_trial_file_request_instance = ParaphraseTrialFileRequest.from_json(json)
 # print the JSON string representation of the object
-print ParaphraseTrialFileRequest.to_json()
+print(ParaphraseTrialFileRequest.to_json())
 
 # convert the object into a dict
 paraphrase_trial_file_request_dict = paraphrase_trial_file_request_instance.to_dict()
 # create an instance of ParaphraseTrialFileRequest from a dict
-paraphrase_trial_file_request_form_dict = paraphrase_trial_file_request.from_dict(paraphrase_trial_file_request_dict)
+paraphrase_trial_file_request_from_dict = ParaphraseTrialFileRequest.from_dict(paraphrase_trial_file_request_dict)
 ```
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

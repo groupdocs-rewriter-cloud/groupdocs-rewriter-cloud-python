@@ -2,6 +2,7 @@
 
 
 ## Properties
+
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **status** | [**HttpStatusCode**](HttpStatusCode.md) |  | [optional] 
@@ -18,12 +19,12 @@ json = "{}"
 # create an instance of SimplifyFileResponse from a JSON string
 simplify_file_response_instance = SimplifyFileResponse.from_json(json)
 # print the JSON string representation of the object
-print SimplifyFileResponse.to_json()
+print(SimplifyFileResponse.to_json())
 
 # convert the object into a dict
 simplify_file_response_dict = simplify_file_response_instance.to_dict()
 # create an instance of SimplifyFileResponse from a dict
-simplify_file_response_form_dict = simplify_file_response.from_dict(simplify_file_response_dict)
+simplify_file_response_from_dict = SimplifyFileResponse.from_dict(simplify_file_response_dict)
 ```
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

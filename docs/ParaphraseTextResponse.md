@@ -2,6 +2,7 @@
 
 
 ## Properties
+
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **status** | [**HttpStatusCode**](HttpStatusCode.md) |  | [optional] 
@@ -21,12 +22,12 @@ json = "{}"
 # create an instance of ParaphraseTextResponse from a JSON string
 paraphrase_text_response_instance = ParaphraseTextResponse.from_json(json)
 # print the JSON string representation of the object
-print ParaphraseTextResponse.to_json()
+print(ParaphraseTextResponse.to_json())
 
 # convert the object into a dict
 paraphrase_text_response_dict = paraphrase_text_response_instance.to_dict()
 # create an instance of ParaphraseTextResponse from a dict
-paraphrase_text_response_form_dict = paraphrase_text_response.from_dict(paraphrase_text_response_dict)
+paraphrase_text_response_from_dict = ParaphraseTextResponse.from_dict(paraphrase_text_response_dict)
 ```
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

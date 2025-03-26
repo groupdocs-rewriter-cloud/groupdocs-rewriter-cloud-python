@@ -14,9 +14,9 @@ Method | HTTP request | Description
 
 ### Example
 
+* OAuth Authentication (JWT):
+
 ```python
-import time
-import os
 import groupdocs_rewriter_cloud
 from groupdocs_rewriter_cloud.rest import ApiException
 from pprint import pprint
@@ -27,6 +27,12 @@ configuration = groupdocs_rewriter_cloud.Configuration(
     host = "https://api.groupdocs.cloud/v2.0/rewriter"
 )
 
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+configuration.access_token = os.environ["ACCESS_TOKEN"]
 
 # Enter a context with an instance of the API client
 with groupdocs_rewriter_cloud.ApiClient(configuration) as api_client:
@@ -42,7 +48,9 @@ with groupdocs_rewriter_cloud.ApiClient(configuration) as api_client:
 ```
 
 
+
 ### Parameters
+
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
@@ -55,7 +63,7 @@ void (empty response body)
 
 ### Authorization
 
-No authorization required
+[JWT](../README.md#JWT)
 
 ### HTTP request headers
 
@@ -63,6 +71,7 @@ No authorization required
  - **Accept**: Not defined
 
 ### HTTP response details
+
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | Success |  -  |

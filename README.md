@@ -4,17 +4,23 @@
 
 [Product Page](https://products.groupdocs.cloud/rewriter/python/) | [Documentation](https://docs.groupdocs.cloud/rewriter/) | [Demos](https://products.groupdocs.app/rewriter/family) | [Swagger UI](https://reference.groupdocs.cloud/rewriter/) | [Examples](https://github.com/groupdocs-rewriter-cloud/groupdocs-rewriter-cloud-python) | [Blog](https://blog.groupdocs.cloud/category/rewriter/) | [Search](https://search.groupdocs.cloud/) | [Free Support](https://forum.groupdocs.cloud/c/rewriter) | [Free Trial](https://purchase.groupdocs.cloud/trial)
 
-GroupDocs.Rewriter Cloud SDK for Python is a simple Python SDK that enables your cloud Apps to perform paraphrasing, simplification, summarization and paraphrasing detection of Microsoft Word®, OpenOffice, Markdown, HTML and Adobe Acrobat® PDF documents as well as plain text by adding just a few lines of code.
+GroupDocs.Rewriter Cloud SDK for Python is a simple Python SDK that enables your cloud Apps to perform paraphrasing, simplification, summarization, comparison,  formalization, synonymization and detection of paraphrased, summarized and AI generated content in documents of different formats, images and scans, audio and video files as well as plain text by adding just a few lines of code.
 
-In other words, it's a SDK for document and plain text rewriting, summarization, etc. in our Cloud, that supports paraphrasing of .doc, .docx, .docm, .pdf, .rtf, .odt, .md, .html, .txt files. Just pass a specific file or text to the GroupDocs.Rewriter Cloud API, and it will process and save result in our Cloud or will return resulting text.
+In other words, it's a SDK for document and plain text rewriting, summarization, etc. in our Cloud, that supports paraphrasing of .doc, .docx, .docm, .pdf, .rtf, .odt, .md, .html, .txt nd many other file types. Just pass a specific file or text to the GroupDocs.Rewriter Cloud API, and it will process and save result in our Cloud or will return resulting text.
 
 It is easy to get started with GroupDocs.Rewriter Cloud and there is nothing to install. Create an account at GroupDocs Cloud and get your application information, then you are ready to use SDKs.
 
 ## Cloud Features
 
 - Paraphrasing / summarization / simplification / paraphrase detection of documents
+- Paraphrasing / summarization / simplification / paraphrase detection of images and scans
 - Paraphrasing / summarization / simplification / paraphrase detection / comparison of plain text
+- Summarization of audio and video files
+- eBooks summarization
 - Words and idioms synonyms finder
+- Texts comparison to detect if one text is paraphrase or translation of another
+- AI generated texts detection
+- Generation of cover letters and text exercises
 - Return resulting text in response
 - Save processed file in cloud
 - No need to install any 3rd party software
@@ -24,11 +30,15 @@ It is easy to get started with GroupDocs.Rewriter Cloud and there is nothing to 
 You can specify format of document to process putting in the request’s body:
 
 - **Microsoft Word®:** DOC, DOCX, DOCM
+- **Microsoft Word®:** PPT, PPTX, PPTM
 - **Adobe®:** PDF
 - **Markdown:** MD
 - **HTML:** HTML
+- **Audio / Video:** MP3, WAV, FLAC, M4A, AAC, WMA, FLV, MKV, WEBM, AVI,  MOV, WMV, RM, MPG
+- **Images:** BMP, JPG, PNG, SVG, GIF
+- **eBooks:** EPUB, MOBI, AZW3
 - **Other:** RTF, ODT, TXT
-
+- 
 Additionally, user could obtain processed file in any other format available for conversion. Just specify output format of paraphrased document by putting file extension in the request’s body:
 
 - **doc, docx** — docx, rtf, html, odt, txt, md, pdf, tiff, svg, xps
@@ -44,43 +54,16 @@ Please visit [Supported Formats](https://docs.groupdocs.cloud/rewriter/supported
 - **en** — to process English text or document
 - **es** — to process Spanish text or document
 - **fr** — to process French text or document
+- **hi** — to process Hindi text or document
 - **id** — to process Indonesian text or document
-- **ru** — to process Russian text or document
-- **uk** — to process Ukrainian text or document
-- **sk** — to process Slovak text or document
-- **pt** — to process Portuguese text or document
 - **it** — to process Italian text or document
+- **pt** — to process Portuguese text or document
+- **ru** — to process Russian text or document
+- **sk** — to process Slovak text or document
 - **th** — to process Thai text or document
-
-## JSON Request Details
-
-To paraphrase plain text the following information should be put in the requests body:
-
-- **language** — language of text (e.g. en)
-- **text** — text to paraphrase (e.g. hello world)
-- **diversityDegree** — diversity of paraphrasing, "medium" or "high", default is "off"
-- **suggestions** — to receive several suggested variants of paraphrasing (from 1 to 3)
-
-To suummarize plain text:
-
-- **language** — language of text
-- **text** — text to paraphrase
-- **summarizationDegree** — degree of summarization, "off", "medium" or "high"
-
-To simplify plain text:
-
-- **language** — language of text
-- **text** — text to paraphrase
-
-To find synonyms:
-
-- **language** — language of text
-- **text** — word or phrase to find synonyms
-- **synonyms** — number of synonyms to return
-
-
-
-SDK also provides a tool for summarizing texts and documents in English. To do this, put the same parameters as for paraphrasing (except for "diversity" and "suggestions") in the requests body.
+- **tr** — to process Turkish text or document
+- **uk** — to process Ukrainian text or document
+- **zh** — to process Chinese text or document
 
 ## How to use the SDK?
 
@@ -95,7 +78,7 @@ It is easy to get started with GroupDocs.Rewriter Cloud. Simply, create an accou
 
 #### 2. Run Demo
   * Checkout the SDK
-  * Open .NET core demo project
+  * Open demo notebook
   * Set Your ClientId & ClientSecret
   * Run
 
@@ -128,10 +111,10 @@ if status.status == groupdocs_rewriter_cloud.models.HttpStatusCode.ACCEPTED:
 
 ## GroupDocs.Rewriter Cloud SDKs in Popular Languages
 
-| .NET | Python |
-|---|---|
-| [GitHub](https://github.com/groupdocs-rewriter-cloud/groupdocs-rewriter-cloud-dotnet) | [GitHub](https://github.com/groupdocs-rewriter-cloud/groupdocs-rewriter-cloud-dotnet) |
-| [NuGet](https://www.nuget.org/packages/GroupDocs.Rewriter-Cloud/) | [PyPi](https://pypi.org/project/groupdocs-rewriter-cloud/) |
+| .NET | Python | Java | Android | Go |
+|---|---|---|---|---|
+| [GitHub](https://github.com/groupdocs-rewriter-cloud/groupdocs-rewriter-cloud-dotnet) | [GitHub](https://github.com/groupdocs-rewriter-cloud/groupdocs-rewriter-cloud-python) | [GitHub](https://github.com/groupdocs-rewriter-cloud/groupdocs-rewriter-cloud-java) | [GitHub](https://github.com/groupdocs-rewriter-cloud/groupdocs-rewriter-cloud-android) | [GitHub](https://github.com/groupdocs-rewriter-cloud/groupdocs-rewriter-cloud) |
+| [NuGet](https://www.nuget.org/packages/GroupDocs.Rewriter-Cloud/) | [PyPi](https://pypi.org/project/groupdocs-rewriter-cloud/) | [Maven](https://repository.groupdocs.cloud/webapp/#/artifacts/browse/tree/General/repo/com/groupdocs/groupdocs-rewriter-cloud) | [Maven](https://repository.groupdocs.cloud/webapp/#/artifacts/browse/tree/General/repo/com/groupdocs/groupdocs-rewriter-cloud-android) | |
 
 ---
 

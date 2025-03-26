@@ -2,6 +2,7 @@
 
 
 ## Properties
+
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **language** | **str** | Set language of text | 
@@ -20,12 +21,12 @@ json = "{}"
 # create an instance of SynonymizeTextRequest from a JSON string
 synonymize_text_request_instance = SynonymizeTextRequest.from_json(json)
 # print the JSON string representation of the object
-print SynonymizeTextRequest.to_json()
+print(SynonymizeTextRequest.to_json())
 
 # convert the object into a dict
 synonymize_text_request_dict = synonymize_text_request_instance.to_dict()
 # create an instance of SynonymizeTextRequest from a dict
-synonymize_text_request_form_dict = synonymize_text_request.from_dict(synonymize_text_request_dict)
+synonymize_text_request_from_dict = SynonymizeTextRequest.from_dict(synonymize_text_request_dict)
 ```
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

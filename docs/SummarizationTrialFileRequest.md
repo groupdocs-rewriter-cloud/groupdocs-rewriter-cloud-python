@@ -2,6 +2,7 @@
 
 
 ## Properties
+
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **language** | **str** | Set language of text | 
@@ -23,12 +24,12 @@ json = "{}"
 # create an instance of SummarizationTrialFileRequest from a JSON string
 summarization_trial_file_request_instance = SummarizationTrialFileRequest.from_json(json)
 # print the JSON string representation of the object
-print SummarizationTrialFileRequest.to_json()
+print(SummarizationTrialFileRequest.to_json())
 
 # convert the object into a dict
 summarization_trial_file_request_dict = summarization_trial_file_request_instance.to_dict()
 # create an instance of SummarizationTrialFileRequest from a dict
-summarization_trial_file_request_form_dict = summarization_trial_file_request.from_dict(summarization_trial_file_request_dict)
+summarization_trial_file_request_from_dict = SummarizationTrialFileRequest.from_dict(summarization_trial_file_request_dict)
 ```
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

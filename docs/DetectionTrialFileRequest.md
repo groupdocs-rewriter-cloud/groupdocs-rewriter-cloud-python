@@ -2,6 +2,7 @@
 
 
 ## Properties
+
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **language** | **str** | Set language of text | 
@@ -22,12 +23,12 @@ json = "{}"
 # create an instance of DetectionTrialFileRequest from a JSON string
 detection_trial_file_request_instance = DetectionTrialFileRequest.from_json(json)
 # print the JSON string representation of the object
-print DetectionTrialFileRequest.to_json()
+print(DetectionTrialFileRequest.to_json())
 
 # convert the object into a dict
 detection_trial_file_request_dict = detection_trial_file_request_instance.to_dict()
 # create an instance of DetectionTrialFileRequest from a dict
-detection_trial_file_request_form_dict = detection_trial_file_request.from_dict(detection_trial_file_request_dict)
+detection_trial_file_request_from_dict = DetectionTrialFileRequest.from_dict(detection_trial_file_request_dict)
 ```
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

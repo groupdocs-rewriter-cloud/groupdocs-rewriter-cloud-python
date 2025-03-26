@@ -2,6 +2,7 @@
 
 
 ## Properties
+
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **language** | **str** | Set language of text | 
@@ -22,12 +23,12 @@ json = "{}"
 # create an instance of SimplifyFileRequest from a JSON string
 simplify_file_request_instance = SimplifyFileRequest.from_json(json)
 # print the JSON string representation of the object
-print SimplifyFileRequest.to_json()
+print(SimplifyFileRequest.to_json())
 
 # convert the object into a dict
 simplify_file_request_dict = simplify_file_request_instance.to_dict()
 # create an instance of SimplifyFileRequest from a dict
-simplify_file_request_form_dict = simplify_file_request.from_dict(simplify_file_request_dict)
+simplify_file_request_from_dict = SimplifyFileRequest.from_dict(simplify_file_request_dict)
 ```
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

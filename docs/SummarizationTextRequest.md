@@ -2,6 +2,7 @@
 
 
 ## Properties
+
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **language** | **str** | Set language of text | 
@@ -20,12 +21,12 @@ json = "{}"
 # create an instance of SummarizationTextRequest from a JSON string
 summarization_text_request_instance = SummarizationTextRequest.from_json(json)
 # print the JSON string representation of the object
-print SummarizationTextRequest.to_json()
+print(SummarizationTextRequest.to_json())
 
 # convert the object into a dict
 summarization_text_request_dict = summarization_text_request_instance.to_dict()
 # create an instance of SummarizationTextRequest from a dict
-summarization_text_request_form_dict = summarization_text_request.from_dict(summarization_text_request_dict)
+summarization_text_request_from_dict = SummarizationTextRequest.from_dict(summarization_text_request_dict)
 ```
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

@@ -8,6 +8,8 @@ Method | HTTP request | Description
 [**summarize_document_request_id_get**](SummarizeApi.md#summarize_document_request_id_get) | **GET** /summarize/document/{requestId} | Return document summarizing status.  Also return URLs for downloading of summarized document if summarization was successful
 [**summarize_document_trial_post**](SummarizeApi.md#summarize_document_trial_post) | **POST** /summarize/document/trial | Trial summarize document
 [**summarize_hc_get**](SummarizeApi.md#summarize_hc_get) | **GET** /summarize/hc | Health check for all summarize services.
+[**summarize_media_post**](SummarizeApi.md#summarize_media_post) | **POST** /summarize/media | Summarize media file
+[**summarize_ocr_post**](SummarizeApi.md#summarize_ocr_post) | **POST** /summarize/ocr | Summarize image or scanned PDF
 [**summarize_supported_conversions_get**](SummarizeApi.md#summarize_supported_conversions_get) | **GET** /summarize/supportedConversions | 
 [**summarize_text_post**](SummarizeApi.md#summarize_text_post) | **POST** /summarize/text | Summarize text
 [**summarize_text_request_id_get**](SummarizeApi.md#summarize_text_request_id_get) | **GET** /summarize/text/{requestId} | Return text summarizing status status.  Also return rewrote text if translation was successful
@@ -21,9 +23,9 @@ Summarize document
 
 ### Example
 
+* OAuth Authentication (JWT):
+
 ```python
-import time
-import os
 import groupdocs_rewriter_cloud
 from groupdocs_rewriter_cloud.models.status_response import StatusResponse
 from groupdocs_rewriter_cloud.models.summarization_file_request import SummarizationFileRequest
@@ -36,6 +38,12 @@ configuration = groupdocs_rewriter_cloud.Configuration(
     host = "https://api.groupdocs.cloud/v2.0/rewriter"
 )
 
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+configuration.access_token = os.environ["ACCESS_TOKEN"]
 
 # Enter a context with an instance of the API client
 with groupdocs_rewriter_cloud.ApiClient(configuration) as api_client:
@@ -53,7 +61,9 @@ with groupdocs_rewriter_cloud.ApiClient(configuration) as api_client:
 ```
 
 
+
 ### Parameters
+
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
@@ -65,7 +75,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[JWT](../README.md#JWT)
 
 ### HTTP request headers
 
@@ -73,6 +83,7 @@ No authorization required
  - **Accept**: text/plain, application/json, text/json
 
 ### HTTP response details
+
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | Success |  -  |
@@ -86,9 +97,9 @@ Return document summarizing status.  Also return URLs for downloading of summari
 
 ### Example
 
+* OAuth Authentication (JWT):
+
 ```python
-import time
-import os
 import groupdocs_rewriter_cloud
 from groupdocs_rewriter_cloud.models.summarization_file_response import SummarizationFileResponse
 from groupdocs_rewriter_cloud.rest import ApiException
@@ -100,6 +111,12 @@ configuration = groupdocs_rewriter_cloud.Configuration(
     host = "https://api.groupdocs.cloud/v2.0/rewriter"
 )
 
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+configuration.access_token = os.environ["ACCESS_TOKEN"]
 
 # Enter a context with an instance of the API client
 with groupdocs_rewriter_cloud.ApiClient(configuration) as api_client:
@@ -117,7 +134,9 @@ with groupdocs_rewriter_cloud.ApiClient(configuration) as api_client:
 ```
 
 
+
 ### Parameters
+
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
@@ -129,7 +148,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[JWT](../README.md#JWT)
 
 ### HTTP request headers
 
@@ -137,6 +156,7 @@ No authorization required
  - **Accept**: text/plain, application/json, text/json
 
 ### HTTP response details
+
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | Success |  -  |
@@ -150,9 +170,9 @@ Trial summarize document
 
 ### Example
 
+* OAuth Authentication (JWT):
+
 ```python
-import time
-import os
 import groupdocs_rewriter_cloud
 from groupdocs_rewriter_cloud.models.status_response import StatusResponse
 from groupdocs_rewriter_cloud.models.summarization_trial_file_request import SummarizationTrialFileRequest
@@ -165,6 +185,12 @@ configuration = groupdocs_rewriter_cloud.Configuration(
     host = "https://api.groupdocs.cloud/v2.0/rewriter"
 )
 
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+configuration.access_token = os.environ["ACCESS_TOKEN"]
 
 # Enter a context with an instance of the API client
 with groupdocs_rewriter_cloud.ApiClient(configuration) as api_client:
@@ -182,7 +208,9 @@ with groupdocs_rewriter_cloud.ApiClient(configuration) as api_client:
 ```
 
 
+
 ### Parameters
+
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
@@ -194,7 +222,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[JWT](../README.md#JWT)
 
 ### HTTP request headers
 
@@ -202,6 +230,7 @@ No authorization required
  - **Accept**: text/plain, application/json, text/json
 
 ### HTTP response details
+
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | Success |  -  |
@@ -215,9 +244,9 @@ Health check for all summarize services.
 
 ### Example
 
+* OAuth Authentication (JWT):
+
 ```python
-import time
-import os
 import groupdocs_rewriter_cloud
 from groupdocs_rewriter_cloud.models.health_check_response import HealthCheckResponse
 from groupdocs_rewriter_cloud.rest import ApiException
@@ -229,6 +258,12 @@ configuration = groupdocs_rewriter_cloud.Configuration(
     host = "https://api.groupdocs.cloud/v2.0/rewriter"
 )
 
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+configuration.access_token = os.environ["ACCESS_TOKEN"]
 
 # Enter a context with an instance of the API client
 with groupdocs_rewriter_cloud.ApiClient(configuration) as api_client:
@@ -245,7 +280,9 @@ with groupdocs_rewriter_cloud.ApiClient(configuration) as api_client:
 ```
 
 
+
 ### Parameters
+
 This endpoint does not need any parameter.
 
 ### Return type
@@ -254,7 +291,7 @@ This endpoint does not need any parameter.
 
 ### Authorization
 
-No authorization required
+[JWT](../README.md#JWT)
 
 ### HTTP request headers
 
@@ -262,6 +299,155 @@ No authorization required
  - **Accept**: text/plain, application/json, text/json
 
 ### HTTP response details
+
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | Success |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **summarize_media_post**
+> StatusResponse summarize_media_post(summarization_media_request=summarization_media_request)
+
+Summarize media file
+
+### Example
+
+* OAuth Authentication (JWT):
+
+```python
+import groupdocs_rewriter_cloud
+from groupdocs_rewriter_cloud.models.status_response import StatusResponse
+from groupdocs_rewriter_cloud.models.summarization_media_request import SummarizationMediaRequest
+from groupdocs_rewriter_cloud.rest import ApiException
+from pprint import pprint
+
+# Defining the host is optional and defaults to https://api.groupdocs.cloud/v2.0/rewriter
+# See configuration.py for a list of all supported configuration parameters.
+configuration = groupdocs_rewriter_cloud.Configuration(
+    host = "https://api.groupdocs.cloud/v2.0/rewriter"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+configuration.access_token = os.environ["ACCESS_TOKEN"]
+
+# Enter a context with an instance of the API client
+with groupdocs_rewriter_cloud.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = groupdocs_rewriter_cloud.SummarizeApi(api_client)
+    summarization_media_request = groupdocs_rewriter_cloud.SummarizationMediaRequest() # SummarizationMediaRequest | String in body of request, containing JSON with parameters for summarizing. (optional)
+
+    try:
+        # Summarize media file
+        api_response = api_instance.summarize_media_post(summarization_media_request=summarization_media_request)
+        print("The response of SummarizeApi->summarize_media_post:\n")
+        pprint(api_response)
+    except Exception as e:
+        print("Exception when calling SummarizeApi->summarize_media_post: %s\n" % e)
+```
+
+
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **summarization_media_request** | [**SummarizationMediaRequest**](SummarizationMediaRequest.md)| String in body of request, containing JSON with parameters for summarizing. | [optional] 
+
+### Return type
+
+[**StatusResponse**](StatusResponse.md)
+
+### Authorization
+
+[JWT](../README.md#JWT)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: text/plain, application/json, text/json
+
+### HTTP response details
+
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | Success |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **summarize_ocr_post**
+> StatusResponse summarize_ocr_post(summarization_ocr_request=summarization_ocr_request)
+
+Summarize image or scanned PDF
+
+### Example
+
+* OAuth Authentication (JWT):
+
+```python
+import groupdocs_rewriter_cloud
+from groupdocs_rewriter_cloud.models.status_response import StatusResponse
+from groupdocs_rewriter_cloud.models.summarization_ocr_request import SummarizationOcrRequest
+from groupdocs_rewriter_cloud.rest import ApiException
+from pprint import pprint
+
+# Defining the host is optional and defaults to https://api.groupdocs.cloud/v2.0/rewriter
+# See configuration.py for a list of all supported configuration parameters.
+configuration = groupdocs_rewriter_cloud.Configuration(
+    host = "https://api.groupdocs.cloud/v2.0/rewriter"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+configuration.access_token = os.environ["ACCESS_TOKEN"]
+
+# Enter a context with an instance of the API client
+with groupdocs_rewriter_cloud.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = groupdocs_rewriter_cloud.SummarizeApi(api_client)
+    summarization_ocr_request = groupdocs_rewriter_cloud.SummarizationOcrRequest() # SummarizationOcrRequest | String in body of request, containing JSON with parameters for summarizing. (optional)
+
+    try:
+        # Summarize image or scanned PDF
+        api_response = api_instance.summarize_ocr_post(summarization_ocr_request=summarization_ocr_request)
+        print("The response of SummarizeApi->summarize_ocr_post:\n")
+        pprint(api_response)
+    except Exception as e:
+        print("Exception when calling SummarizeApi->summarize_ocr_post: %s\n" % e)
+```
+
+
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **summarization_ocr_request** | [**SummarizationOcrRequest**](SummarizationOcrRequest.md)| String in body of request, containing JSON with parameters for summarizing. | [optional] 
+
+### Return type
+
+[**StatusResponse**](StatusResponse.md)
+
+### Authorization
+
+[JWT](../README.md#JWT)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: text/plain, application/json, text/json
+
+### HTTP response details
+
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | Success |  -  |
@@ -275,9 +461,9 @@ No authorization required
 
 ### Example
 
+* OAuth Authentication (JWT):
+
 ```python
-import time
-import os
 import groupdocs_rewriter_cloud
 from groupdocs_rewriter_cloud.rest import ApiException
 from pprint import pprint
@@ -288,6 +474,12 @@ configuration = groupdocs_rewriter_cloud.Configuration(
     host = "https://api.groupdocs.cloud/v2.0/rewriter"
 )
 
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+configuration.access_token = os.environ["ACCESS_TOKEN"]
 
 # Enter a context with an instance of the API client
 with groupdocs_rewriter_cloud.ApiClient(configuration) as api_client:
@@ -304,7 +496,9 @@ with groupdocs_rewriter_cloud.ApiClient(configuration) as api_client:
 ```
 
 
+
 ### Parameters
+
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
@@ -316,7 +510,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[JWT](../README.md#JWT)
 
 ### HTTP request headers
 
@@ -324,6 +518,7 @@ No authorization required
  - **Accept**: text/plain, application/json, text/json
 
 ### HTTP response details
+
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | Success |  -  |
@@ -337,9 +532,9 @@ Summarize text
 
 ### Example
 
+* OAuth Authentication (JWT):
+
 ```python
-import time
-import os
 import groupdocs_rewriter_cloud
 from groupdocs_rewriter_cloud.models.status_response import StatusResponse
 from groupdocs_rewriter_cloud.models.summarization_text_request import SummarizationTextRequest
@@ -352,6 +547,12 @@ configuration = groupdocs_rewriter_cloud.Configuration(
     host = "https://api.groupdocs.cloud/v2.0/rewriter"
 )
 
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+configuration.access_token = os.environ["ACCESS_TOKEN"]
 
 # Enter a context with an instance of the API client
 with groupdocs_rewriter_cloud.ApiClient(configuration) as api_client:
@@ -369,7 +570,9 @@ with groupdocs_rewriter_cloud.ApiClient(configuration) as api_client:
 ```
 
 
+
 ### Parameters
+
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
@@ -381,7 +584,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[JWT](../README.md#JWT)
 
 ### HTTP request headers
 
@@ -389,6 +592,7 @@ No authorization required
  - **Accept**: text/plain, application/json, text/json
 
 ### HTTP response details
+
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | Success |  -  |
@@ -402,9 +606,9 @@ Return text summarizing status status.  Also return rewrote text if translation 
 
 ### Example
 
+* OAuth Authentication (JWT):
+
 ```python
-import time
-import os
 import groupdocs_rewriter_cloud
 from groupdocs_rewriter_cloud.models.summarization_text_response import SummarizationTextResponse
 from groupdocs_rewriter_cloud.rest import ApiException
@@ -416,6 +620,12 @@ configuration = groupdocs_rewriter_cloud.Configuration(
     host = "https://api.groupdocs.cloud/v2.0/rewriter"
 )
 
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+configuration.access_token = os.environ["ACCESS_TOKEN"]
 
 # Enter a context with an instance of the API client
 with groupdocs_rewriter_cloud.ApiClient(configuration) as api_client:
@@ -433,7 +643,9 @@ with groupdocs_rewriter_cloud.ApiClient(configuration) as api_client:
 ```
 
 
+
 ### Parameters
+
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
@@ -445,7 +657,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[JWT](../README.md#JWT)
 
 ### HTTP request headers
 
@@ -453,6 +665,7 @@ No authorization required
  - **Accept**: text/plain, application/json, text/json
 
 ### HTTP response details
+
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | Success |  -  |
@@ -466,9 +679,9 @@ Trial summarize text
 
 ### Example
 
+* OAuth Authentication (JWT):
+
 ```python
-import time
-import os
 import groupdocs_rewriter_cloud
 from groupdocs_rewriter_cloud.models.status_response import StatusResponse
 from groupdocs_rewriter_cloud.models.summarization_text_request import SummarizationTextRequest
@@ -481,6 +694,12 @@ configuration = groupdocs_rewriter_cloud.Configuration(
     host = "https://api.groupdocs.cloud/v2.0/rewriter"
 )
 
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+configuration.access_token = os.environ["ACCESS_TOKEN"]
 
 # Enter a context with an instance of the API client
 with groupdocs_rewriter_cloud.ApiClient(configuration) as api_client:
@@ -498,7 +717,9 @@ with groupdocs_rewriter_cloud.ApiClient(configuration) as api_client:
 ```
 
 
+
 ### Parameters
+
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
@@ -510,7 +731,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[JWT](../README.md#JWT)
 
 ### HTTP request headers
 
@@ -518,6 +739,7 @@ No authorization required
  - **Accept**: text/plain, application/json, text/json
 
 ### HTTP response details
+
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | Success |  -  |
